@@ -1,7 +1,7 @@
 {
-  "name": "ralali-automation-apps",
+  "name": "appium-webdriverIO-automation-apps",
   "version": "1.0.0",
-  "description": "WebdriverIO and BrowserStack App Automation for Ralali Marketplace",
+  "description": "WebdriverIO and BrowserStack App Automation",
   "scripts": {
     "local": "npx wdio ./android/config/wdio.local.conf.js",
     "browserstack": "npx wdio ./android/config/wdio.browserstack.conf.js",
