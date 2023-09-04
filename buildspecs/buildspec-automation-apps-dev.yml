@@ -1,0 +1,33 @@
+version: 0.2
+env:
+  variables:
+    S3_BUCKET_DOMAIN: qa-report-dev.ralali.io
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  pre_build:
+    commands:
+    - yum install -y sudo
+    - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+    - aws s3 cp s3://rll-environment-dev/ssmgetterboto3.py $CODEBUILD_SRC_DIR
+    - python3 ssmgetterboto3.py rll-automation-apps file .env True
+    - rm ssmgetterboto3.py
+    - aws --version && git --version && python --version
+    - rm -f android/app/ralalidev.apk
+    - aws s3 cp s3://qa-report-dev.ralali.io/mobile-app/androidApkFile/app-debug.apk $CODEBUILD_SRC_DIR/android/app/ralalidev.apk
+    - rm -rf node_modules
+    - rm -f package.json
+    - rm -f package-lock.json
+    - rm -f ./report
+    - cp package-android.json package.json
+    - npm install
+  build:
+    commands:
+    - npm run browserstack
+  post_build:
+    commands:
+    - cp $CODEBUILD_SRC_DIR/report/report-$(date +\%Y-\%m-\%d).html $CODEBUILD_SRC_DIR/report/report-$(date +\%Y-\%m-\%d-\%H:\%M).html
+    - aws s3 cp $CODEBUILD_SRC_DIR/report/report-$(date +\%Y-\%m-\%d-\%H:\%M).html s3://qa-report-dev.ralali.io/rll-automation-apps/report-$(date +\%Y-\%m-\%d-\%H:\%M).html
+    - npm run postrun-helper
+    - echo "Finish AT Apps RalaliDev"

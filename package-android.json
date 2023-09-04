@@ -1,0 +1,30 @@
+{
+  "name": "ralali-automation-apps",
+  "version": "1.0.0",
+  "description": "WebdriverIO and BrowserStack App Automation for Ralali Marketplace",
+  "scripts": {
+    "local": "npx wdio ./android/config/wdio.local.conf.js",
+    "browserstack": "npx wdio ./android/config/wdio.browserstack.conf.js",
+    "postrun-helper": "node ./android/helpers/atapps-postrun-helper.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "webdriverio": "^7",
+    "ssh2": "^1.11.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "@wdio/appium-service": "^7.31.1",
+    "@wdio/browserstack-service": "^7",
+    "@wdio/cli": "^7.16.16",
+    "@wdio/dot-reporter": "^7.16.14",
+    "@wdio/local-runner": "^7.31.1",
+    "@wdio/mocha-framework": "^7.30.2",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.43.0",
+    "eslint-plugin-wdio": "^8.8.7",
+    "wdio-light-reporter": "^0.2.7"
+  }
+}
