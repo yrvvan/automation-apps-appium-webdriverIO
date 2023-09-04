@@ -27,27 +27,13 @@ exports.config = {
         disableCorsRestrictions : 'true'
       }
     }
-    // {
-    //   'bstack:options': {
-    //     deviceName: 'OnePlus 9',
-    //     platformVersion: '11.0',
-    //     platformName: 'android',
-    //   }
-    // },
-    // {
-    //   'bstack:options': {
-    //     deviceName: 'Google Pixel 7',
-    //     platformVersion: '13.0',
-    //     platformName: 'android',
-    //   }
-    // }
   ],
 
   commonCapabilities: {
     'bstack:options': {
-      projectName: "Ralali Automation Apps",
-      buildName: `[Android] Ralali Automation Apps build ${todayDate}-${time}`,
-      sessionName: 'Ralali Automation Apps',
+      projectName: "Automation Apps",
+      buildName: `[Android] Automation Apps build ${todayDate}-${time}`,
+      sessionName: 'Automation Apps',
       debug: true,
       networkLogs: true,
       source: 'webdriverio:appium-sample-sdk:v1.0'
