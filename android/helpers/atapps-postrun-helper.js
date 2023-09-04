@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const axios = require('axios');
 let browserstackResponse = {};
-let repo = 'rll-automation-apps';
+let repo = 'appium-webdriverIO-automation-apps';
 const bstackUsername = process.env.BROWSERSTACK_USERNAME;
 const bstackAccessKey = process.env.BROWSERSTACK_ACCESS_KEY;
 
@@ -168,7 +168,7 @@ const paramBuilder = function (payload) {
 
     // General Payload for API using HTTP Request
     let information = {
-      'test_html_file': `https://qa-report-dev.ralali.io/rll-automation-apps/${htmlFile[0]}`,
+      'test_html_file': `https://bucket-domain-here/folder-here/${htmlFile[0]}`,
       'service': repo,
       'repository_name': repo,
       'test_coverage': `${parseFloat((stats.passes / (stats.passes + stats.failures)) * 100).toFixed(2)}`,
