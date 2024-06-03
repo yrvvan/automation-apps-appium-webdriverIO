@@ -3,7 +3,7 @@ This repository demonstrates how to run Appium tests using [WebdriverIO](http://
 
 <div align="center">
 <img src = "https://www.browserstack.com/images/layout/browserstack-logo-600x315.png" > <br>
-<img src = "https://webdriver.io/img/webdriverio.png"  height="140px">
+<img src = "https://webdriver.io/img/webdriverio.png" height="140px">
 </div>
 
 Code samples to get started with Appium tests for your Native App using WebdriverIO.
@@ -23,8 +23,16 @@ Code samples to get started with Appium tests for your Native App using Webdrive
 
 ### Install the dependencies
 
-For Android tests, run the following command in project's base directory :
+First thing first, setup your environment. We will using `appium-doctor` to check which dependencies that needed to be installed. if you haven't install it yet, you can install it globally by npm. After installed then run this command :
+```sh
+npm appium-doctor --android
+```
+You'll given this information :
+![image](https://github.com/yrvvan/appium-webdriverIO-automation-apps/assets/5118370/77b82a6a-598e-467e-8dbb-ef9b6e1be35b)
 
+We should set environment variables and install necessary dependencies that `appium-doctor` gives us. For example `JAVA_HOME`, `ANDROID_HOME`, etc
+
+For Android tests, run the following command in project's base directory :
 ```sh
 mv package-android.json package.json
 npm i
@@ -34,10 +42,19 @@ npm i
 
 Getting Started with Appium tests using WebdriverIO on BrowserStack couldn't be easier!
 
-### Android:
+### Appium
+  - Run your Appium server to enable inspecting element on Appium Inspector by running `appium -p 7070` (for example we're using port 7070)
+  - Open your `Appium Inspector` and set your compatibilities like this :
+    <img width="1095" alt="Screen Shot 2024-06-03 at 20 38 41" src="https://github.com/yrvvan/appium-webdriverIO-automation-apps/assets/5118370/bb36e8b5-5cfd-4719-b524-659c0e0c098a">
+  - You can get `udid` value by run this command `adb devices` (you can use real device by enabling USB debugging in developer options or run virtual device from Android studio)
+  - After that click `Start Session`
+  - Then you can inspecting your apps element
+
+### Android
   - Local config is available in `wdio.local.conf.js` directory under [Android Config](android/config/)
   - Browserstack config is available in `wdio.browserstack.conf.js` directory under [Android Config](android/config/)
   - Follow the steps outlined in the documentation - [Get Started with your first test on App Automate](https://www.browserstack.com/docs/app-automate/appium/getting-started/nodejs/webdriverio)
+  - Give your attention to the value that referred to `.env`, you can add the required value in `.env` file or statically state it in your `...conf.js`
 
 **Note**: For other test frameworks supported by App-Automate refer our [Developer documentation](https://www.browserstack.com/docs/)
 
