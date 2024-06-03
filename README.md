@@ -2,7 +2,7 @@
 This repository demonstrates how to run Appium tests using [WebdriverIO](http://webdriver.io/) on BrowserStack App Automate.
 
 <div align="center">
-<img src = "https://www.browserstack.com/images/layout/browserstack-logo-600x315.png" > <br>
+<img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsfIv3zsRKkDkvDPdzBW2pWE9qMcftmJntUQ&s" > <br>
 <img src = "https://webdriver.io/img/webdriverio.png" height="140px">
 </div>
 
